@@ -1,7 +1,6 @@
-" Vimrc file, http://phuzz.org
-
 set nocompatible    " use vim defaults
 set ls=2            " allways show status line
+set expandtab 		" use space to replace tab
 set tabstop=4       " numbers of spaces of tab character
 set shiftwidth=4    " numbers of spaces to (auto)indent
 set scrolloff=3     " keep 3 lines when scrolling
@@ -15,13 +14,11 @@ set nobackup        " do not keep a backup file
 set noignorecase   " don't ignore case
 set title           " show title in console title bar
 set ttyfast         " smoother changes
-"set ttyscroll=0        " turn off scrolling, didn't work well with PuTTY
 set modeline        " last lines in document sets vim mode
 set modelines=3     " number lines checked for modelines
 set shortmess=atI   " Abbreviate messages
 set nostartofline   " don't jump to first character when paging
 set whichwrap=b,s,h,l,<,>,[,]   " move freely between files
-"set viminfo='20,<50,s10,h
 
 set autoindent     " always set autoindenting on
 set smartindent        " smart indent
@@ -29,41 +26,19 @@ set cindent            " cindent
 set noautoindent
 set nosmartindent
 set nocindent  
-set t_Co=256
-"set autowrite      " auto saves changes when quitting and swiching buffer
-"set expandtab      " tabs are converted to spaces, use only when required
-"set sm             " show matching braces, somewhat annoying...
-"set nowrap         " don't wrap lines
 
 syntax on           " syntax highlighing
-
-set formatoptions+=r
-set comments=sl:/*,mb:*,ex:*/ " 插入注释
-
-"映射F12键为行号的开关
-map <F12> :set number!<CR> 
-
-nmap <C-N> :tabnext<CR>
-nmap <C-P> :tabprevious<CR>
-
-" insert mode shortcut
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
-inoremap <C-d> <DELETE>
-"""""""""""""""""""""""""""""
-" TagList setting
-"""""""""""""""""""""""""""""
-"Exuberant ctags程序的位置
-let Tlist_Ctags_Cmd="/usr/bin/ctags"
-let Tlist_Inc_Winwidth=0
-"只显示当前文件的tag
-let Tlist_File_Fold_Auto_Close=1
-"如果Taglist是最后一个窗口则退出vim
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Auto_Open=1
-
+if has("gui_running")
+    " See ~/.gvimrc
+    set guifont=Monospace\ 10  " use this font
+    set lines=50       " height = 50 lines
+    set columns=100        " width = 100 columns
+    set background=light   " adapt colors for background
+    set selectmode=mouse,key,cmd
+    set keymodel=
+else
+    colorscheme default   " use this color scheme
+endif
 
 if has("autocmd")
     " Restore cursor position
@@ -90,11 +65,15 @@ if has("autocmd")
     au BufNewFile,BufRead  modprobe.conf    set syntax=modconf
 endif
 
-" Key Mapping for Gundo
-nnoremap <F5> :GundoToggle<CR>
+inoremap {<CR> {<CR>}<Esc>O
 
-set backspace=2
+filetype plugin on
 
-" For CSApprox
-let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
-colorscheme darkocean
+""""""""""""""""""""""""""""
+"" VIM WIKI CONFIG
+""""""""""""""""""""""""""""
+let g:vimwiki_list=[{'path': '~/Code/pages/vimwiki/', 
+\ 'path_html': '~/Code/pages/wiki/', 
+\ 'template_path': '~/Code/pages/vimwiki/template/',
+\ 'template_default': 'default',
+\ 'template_ext': '.html'}]
