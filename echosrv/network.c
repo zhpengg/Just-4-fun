@@ -21,7 +21,7 @@ int open_socket(const char *address, int port)
     srvaddr.sin_family = AF_INET;
     srvaddr.sin_port = htons(port);
     int ret = inet_aton(address, &srvaddr.sin_addr);
-    if (ret != 0) {
+    if (ret == 0) {
         perror("inet_aton");
         return -1;
     }

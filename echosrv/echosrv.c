@@ -12,15 +12,15 @@ void usage()
 
 int main(int argc, char **argv)
 {
-    if (argc != 4 || strncmp("-m", argv[2], 3)) {
+    if (argc != 3 || strncmp("-m", argv[1], 3)) {
         usage();
     }
 
-    if (!strncmp("select", argv[3], 7)) {
+    if (!strncmp("select", argv[2], 7)) {
         echo_select();
-    } else if (!strncmp("poll", argv[3], 5)) {
+    } else if (!strncmp("poll", argv[2], 5)) {
         echo_poll();
-    } else if (!strncmp("epoll", argv[3], 6)) {
+    } else if (!strncmp("epoll", argv[2], 6)) {
         echo_epoll();
     } else {
         usage();
