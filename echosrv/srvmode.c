@@ -7,6 +7,8 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
+#include <sys/epoll.h>
+
 #include "srvmode.h"
 #include "network.h"
 
@@ -94,5 +96,50 @@ void echo_poll()
 
 void echo_epoll()
 {
+	int lsnfd = open_socket(LSN_ADDRESS, LSN_PORT);
+	if (lsnfd < 0) return;
 
+	int epfd = epoll_create(1024);
+	if (epfd < 0) {
+		perror("epoll_create");
+		return;
+	}
+
+	const int max_events = 1024;
+	struct epoll_event ev, events[max_events];
+	ev.events = EPOLLIN;
+	ev.data.fd = lsnfd;
+	int ret = epoll_ctl(epfd, EPOLL_CTL_ADD, lsnfd, &ev);
+	if (ret != 0) {
+		perror("epoll_ctl");
+		return;
+	}
+
+	int i, nfds = 0, timeout = 2000;
+	for (;;) {
+		nfds = epoll_wait(epfd, events, max_events, timeout); 
+		if (nfds < 0) {
+			perror("epoll wait");
+			return;
+		}
+		for (i = 0; i < nfds; i++) {
+			if (events[i].data.fd == lsnfd) {
+				// do accesp
+				int acpfd = do_accept(lsnfd);
+				if (acpfd > 0) {
+					ev.data.fd = acpfd;
+					ev.events = EPOLLIN;
+					epoll_ctl(epfd, EPOLL_CTL_ADD, acpfd, &ev);
+				}
+			} else {
+				// do read
+				int ret = do_read(events[i].data.fd);
+				if (ret < 0) {
+					ev.data.fd = events[i].data.fd;
+					epoll_ctl(epfd, EPOLL_CTL_DEL, events[i].data.fd, &ev);
+				}
+				// TODO Address alrady in use
+			}
+		}
+	}	
 }

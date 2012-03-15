@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -g -std=c99 -O2
+CFLAGS = -Wall -g -std=gnu99 -O2
 LDFLAGS = -lpthread
 
 SOURCES = echosrv.c srvmode.c network.c
