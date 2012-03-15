@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -g -std=c99 -O2
-LDFLAGS = 
+LDFLAGS = -lpthread
 
 SOURCES = echosrv.c srvmode.c network.c
 OBJECTS = $(SOURCES:.c=.o)
@@ -10,9 +10,11 @@ all: $(SOURCE) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
-.cpp.o:
-	$(CC) $(CFLAGS) $< -o $@
+
+benchmakr: benchmark.c
+	$(CC) $(LDFLAGS) -o $@
+
 clean: 
 	-rm -f $(OBJECTS)
-	-rm -f echosrv
+	-rm -f echosrv benchmark
 
