@@ -98,14 +98,14 @@ void echo_poll()
     if (lsnfd < 0) return;
 
     const int max_events = 1024;
-    struct pollfd pfds[max_events], pfdsback[max_events];
+    struct pollfd pfds[max_events];
     int i;
     for (i = 0; i < max_events; i++)
-        pfdsback[i].fd = -1;
+        pfds[i].fd = -1;
 
-    pfds[lsnfd].fd = lsnfd;
-    pfds[lsnfd].events = POLLIN;
-    int totalfds = lsnfd+1;
+    pfds[0].fd = lsnfd;
+    pfds[0].events = POLLIN;
+    int totalfds = 1;
     int timeout = 2000;
     for (;;) {
         int nfds = poll(pfds, totalfds, timeout);
@@ -117,24 +117,31 @@ void echo_poll()
             return;
         }
 
-        for (i = 0; i < max_events && nfds; i++) {
+        for (i = 0; i < totalfds && nfds > 0; i++) {
             if (pfds[i].revents & POLLIN) {
                 if (pfds[i].fd == lsnfd) {
-                    int acpfd = do_accept(lsnfd);
+                    int acpfd = do_accept(lsnfd), k = 0;
                     if (acpfd > 0) {
-                        pfds[acpfd].fd = acpfd;
-                        pfds[acpfd].events = POLLIN;
+                        // find first available epfd
+                        for (k = 0; k < max_events && pfds[k].fd != -1; k++)
+                            ;
+                        if (k == max_events) {
+                            printf("Too many connections\n");
+                            continue;
+                        }
+                        pfds[k].fd = acpfd;
+                        pfds[k].events = POLLIN;
                     }
-                    if (acpfd + 1 > totalfds)
-                        totalfds = acpfd + 1;
+                    if (k + 1 > totalfds)
+                        totalfds = k + 1;
                 } else {
                     int ret = do_read(pfds[i].fd);
                     if (ret < 0) {
                         close(pfds[i].fd);
                         pfds[i].fd = -1;
                     }
-                    if (i + 1 >= totalfds)
-                        totalfds = i;
+                    if (i + 1 > totalfds)
+                        totalfds = i+1;
                 }
                 nfds--;
             }
