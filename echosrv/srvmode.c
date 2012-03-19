@@ -1,11 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <string.h>
 #include <sys/select.h>
 
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+
+#include <poll.h>
 
 #include <sys/epoll.h>
 
@@ -41,7 +44,7 @@ int do_read(int fd)
     } else {
         return -1;
     }
-    return 0;
+    return ret;
 }
 
 void echo_select()
@@ -91,7 +94,52 @@ void echo_select()
 
 void echo_poll()
 {
+    int lsnfd = open_socket(LSN_ADDRESS, LSN_PORT);
+    if (lsnfd < 0) return;
 
+    const int max_events = 1024;
+    struct pollfd pfds[max_events], pfdsback[max_events];
+    int i;
+    for (i = 0; i < max_events; i++)
+        pfdsback[i].fd = -1;
+
+    pfds[lsnfd].fd = lsnfd;
+    pfds[lsnfd].events = POLLIN;
+    int totalfds = lsnfd+1;
+    int timeout = 2000;
+    for (;;) {
+        int nfds = poll(pfds, totalfds, timeout);
+        if (nfds == 0) {
+            printf("time out\n");
+            continue;
+        } else if (nfds < 0) {
+            perror("poll");
+            return;
+        }
+
+        for (i = 0; i < max_events && nfds; i++) {
+            if (pfds[i].revents & POLLIN) {
+                if (pfds[i].fd == lsnfd) {
+                    int acpfd = do_accept(lsnfd);
+                    if (acpfd > 0) {
+                        pfds[acpfd].fd = acpfd;
+                        pfds[acpfd].events = POLLIN;
+                    }
+                    if (acpfd + 1 > totalfds)
+                        totalfds = acpfd + 1;
+                } else {
+                    int ret = do_read(pfds[i].fd);
+                    if (ret < 0) {
+                        close(pfds[i].fd);
+                        pfds[i].fd = -1;
+                    }
+                    if (i + 1 >= totalfds)
+                        totalfds = i;
+                }
+                nfds--;
+            }
+        }
+    }
 }
 
 void echo_epoll()
@@ -121,6 +169,9 @@ void echo_epoll()
         if (nfds < 0) {
             perror("epoll wait");
             return;
+        } else if (nfds == 0) {
+            printf("timeout\n");
+            continue;
         }
         for (i = 0; i < nfds; i++) {
             if (events[i].data.fd == lsnfd) {
@@ -138,7 +189,6 @@ void echo_epoll()
                     ev.data.fd = events[i].data.fd;
                     epoll_ctl(epfd, EPOLL_CTL_DEL, events[i].data.fd, &ev);
                 }
-                // TODO Address alrady in use
             }
         }
     }	

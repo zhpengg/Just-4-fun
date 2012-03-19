@@ -17,6 +17,12 @@ int open_socket(const char *address, int port)
         return -1;
     }
 
+    int flag = 1;
+    if (setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &flag, sizeof(flag)) != 0) {
+        perror("setsockopt");
+        return -1;
+    }
+
     struct sockaddr_in srvaddr;
     memset(&srvaddr, 0, sizeof(srvaddr));
     srvaddr.sin_family = AF_INET;
