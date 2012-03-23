@@ -20,8 +20,10 @@ int main(int argc, char **argv)
         echo_select();
     } else if (!strncmp("poll", argv[2], 5)) {
         echo_poll();
-    } else if (!strncmp("epoll", argv[2], 6)) {
-        echo_epoll();
+    } else if (!strncmp("epoll-lt", argv[2], 9)) {
+        echo_epoll_lt();
+    } else if (!strncmp("epoll-et", argv[2], 9)) {
+        echo_epoll_et();
     } else {
         usage();
     }

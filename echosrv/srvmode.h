@@ -5,6 +5,8 @@ void echo_select();
 
 void echo_poll();
 
-void echo_epoll();
+void echo_epoll_lt();
+
+void echo_epoll_et();
 
 #endif // __SRVMODE__

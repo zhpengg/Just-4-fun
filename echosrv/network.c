@@ -6,6 +6,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <sys/types.h>
+#include <fcntl.h>
 
 #include "network.h"
 
@@ -45,4 +46,19 @@ int open_socket(const char *address, int port)
         return -1;
     }
     return sockfd;
+}
+
+int make_nonblock(int fd)
+{
+    int flags = fcntl(fd, F_GETFL);
+    if (flags < 0) {
+        perror("fcntl");
+        return -1;
+    }
+
+    if (fcntl(fd, F_SETFL, flags | O_NONBLOCK) < 0) {
+        perror("fcntl set flags");
+        return -1;
+    }
+    return 0;
 }

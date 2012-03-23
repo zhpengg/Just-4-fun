@@ -149,7 +149,7 @@ void echo_poll()
     }
 }
 
-void echo_epoll()
+void echo_epoll_lt()
 {
     int lsnfd = open_socket(LSN_ADDRESS, LSN_PORT);
     if (lsnfd < 0) return;
@@ -199,4 +199,9 @@ void echo_epoll()
             }
         }
     }	
+}
+
+void echo_epoll_et()
+{
+
 }
