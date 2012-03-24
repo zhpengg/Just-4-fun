@@ -1,3 +1,10 @@
+/**
+ * @file Thread.h
+ * @brief simple thread wrapper
+ * @author zhpeng.is@gmail.com
+ * @version 0.0.1
+ * @date 2012-03-24
+ */
 #ifndef __THREAD__
 #define __THREAD__
 

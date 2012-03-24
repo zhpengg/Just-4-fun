@@ -1,3 +1,10 @@
+/**
+ * @file Thread.cpp
+ * @brief simple thread wrapper
+ * @author zhpeng.is@gmail.com
+ * @version 0.0.1
+ * @date 2012-03-24
+ */
 #include "Thread.h"
 #include <unistd.h>
 #include <sys/syscall.h>
