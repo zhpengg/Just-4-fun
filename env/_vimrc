@@ -23,9 +23,6 @@ set whichwrap=b,s,h,l,<,>,[,]   " move freely between files
 set autoindent     " always set autoindenting on
 set smartindent        " smart indent
 set cindent            " cindent
-set noautoindent
-set nosmartindent
-set nocindent  
 
 syntax on           " syntax highlighing
 if has("gui_running")
@@ -55,14 +52,6 @@ if has("autocmd")
     au FileType cpp,c,java,sh,pl,php,asp  set smartindent
     au FileType cpp,c,java,sh,pl,php,asp  set cindent
     "au BufRead mutt*[0-9] set tw=72
-    
-    " Automatically chmod +x Shell and Perl scripts
-    "au BufWritePost   *.sh             !chmod +x %
-    "au BufWritePost   *.pl             !chmod +x %
-
-    " File formats
-    au BufNewFile,BufRead  *.pls    set syntax=dosini
-    au BufNewFile,BufRead  modprobe.conf    set syntax=modconf
 endif
 
 inoremap {<CR> {<CR>}<Esc>O
