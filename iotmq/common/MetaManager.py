@@ -24,7 +24,7 @@ class MetaManager():
 
     def create_node(self, path = ''):
         try:
-            self.zk.create(path, '', zc.zk.OPEN_ACL_UNSAFE)
+            self.zk.create(self.root + path, '', zc.zk.OPEN_ACL_UNSAFE)
             return True
         except Exception, e:
             logging.warning('zk create node(%s) failed, %s' % (path, str(e)))
@@ -32,18 +32,20 @@ class MetaManager():
 
     def create_node_with_property(self, path = '', properties = ''):
         try:
-            self.zk.create_recursive(path, properties, zc.zk.OPEN_ACL_UNSAFE)
+            self.zk.create_recursive(self.root + path, properties, zc.zk.OPEN_ACL_UNSAFE)
             return True
         except Exception, e:
             logging.warning('create recursive node(%s) failed, %s' % (path, str(e)))
             return False
 
-    def regist_node(self, path = '', value = ''):
+    def register_node(self, path = '', value = ''):
         try:
+            path = self.root + path
+            logging.debug('register node, path: %s, value: %s' % (path, value))
             self.zk.register_server(path, value, zc.zk.OPEN_ACL_UNSAFE)
             return True
         except Exception, e:
-            logging.warning('regist node(%s) failed, %s' % (path, str(e)))
+            logging.warning('register node(%s) failed, %s' % (path + value, str(e)))
             return False
 
 
