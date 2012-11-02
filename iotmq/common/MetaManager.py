@@ -48,6 +48,15 @@ class MetaManager():
             logging.warning('register node(%s) failed, %s' % (path + value, str(e)))
             return False
 
+    def get_children(self, path):
+        try:
+            path = self.root + path
+            children = self.zk.children(path)
+            return sorted(children)
+        except Exception, e:
+            logging.warning('get children(%s) error, %s' % (path, str(e)))
+            return []
+
 
 # for testing
 if __name__ == '__main__':
