@@ -1,0 +1,179 @@
+##Google.com Google.com
+2404:6800:8005::64 google.com
+2404:6800:8005::54 accounts.google.com #accounts.l.google.com
+2404:6800:8005::5e accounts.google.com.hk #accounts-cctld.l.google.com
+2404:6800:8005::54 accounts.l.google.com
+2404:6800:8005::c1 m.google.com #mobile.l.google.com
+2404:6800:8005::c1 m.google.com.hk #mobile.l.google.com
+2404:6800:8005::c1 mobile.l.google.com
+2001:4860:4860::8888 google-public-dns-a.google.com
+2001:4860:4860::8844 google-public-dns-b.google.com
+2404:6800:8005::64 services.google.com #www3.l.google.com
+2404:6800:8005::71 goto.google.com #www3.l.google.com
+2404:6800:8005::71 jmt0.google.com #www3.l.google.com
+###2404:6800:8005::d2 wire.l.google.com
+#2404:6800:8005::63 ipv6.google.com #ipv6.l.google.com
+#2404:6800:8005::69 ipv6.google.com #ipv6.l.google.com
+#2404:6800:8005::63 ipv6.google.com.hk #ipv6.google.com
+#2404:6800:8005::69 ipv6.google.com.hk #ipv6.google.com
+#2404:6800:8005::63 ipv6.google.co.jp #ipv6.google.com
+#2404:6800:8005::69 ipv6.google.co.jp #ipv6.google.com
+#2404:6800:8005::63 ipv6.l.google.com
+
+##Google.com.hk 谷歌香港
+2404:6800:8005::6a www.google.com.hk #www.l.google.com
+2404:6800:8005::5b picasaweb.google.com.hk #picasaweb.l.google.com
+2404:6800:8005::63 desktop.google.com.hk #desktop.l.google.com
+2404:6800:8005::5e id.google.com.hk #id.l.google.com
+2404:6800:8005::69 google.com.hk
+2404:6800:8005::67 www.googlechinawebmaster.com
+
+##Google.cn 谷歌中国（启用此地址无法正常使用谷歌音乐）
+#2404:6800:8005::a0 www.google.cn
+2404:6800:8005::a0 g.cn
+2404:6800:8005::a0 google.cn
+2404:6800:8005::a0 news.google.cn #www.google.cn
+2404:6800:8005::a0 video.google.cn #www.google.cn
+#2404:6800:8005::63 ipv6.google.cn #ipv6.l.google.com
+#2404:6800:8005::69 ipv6.google.cn #ipv6.l.google.com
+###2404:6800:8005::6a ipv6cn.l.google.com
+2404:6800:8005::84 music.googleusercontent.cn #googleusercontent.cn
+2404:6800:8005::a0 m.google.cn #www.google.cn
+2404:6800:8005::a0 www.265.com #265.com
+2404:6800:8005::a0 265.com
+
+##Google.com.tw Google 台湾
+2404:6800:8005::5e www.google.com.tw #www-cctld.l.google.com
+2404:6800:8005::88 picasaweb.google.com.tw #picasaweb.l.google.com
+
+##Google.co.jp Google 日本
+2404:6800:8005::5e www.google.co.jp #www-cctld.l.google.com
+
+##其他
+2404:6800:8005::5e www.google.ae #www-cctld.l.google.com
+2404:6800:8005::5e www.google.com.ar #www-cctld.l.google.com
+2404:6800:8005::5e www.google.at #www-cctld.l.google.com
+2404:6800:8005::5e www.google.com.au #www-cctld.l.google.com
+2404:6800:8005::5e www.google.be #www-cctld.l.google.com
+2404:6800:8005::5e www.google.com.br #www-cctld.l.google.com
+2404:6800:8005::5e www.google.ca #www-cctld.l.google.com
+2404:6800:8005::5e www.google.ch #www-cctld.l.google.com
+###2404:6800:8005::a0 www.google.cn #中国（已死）
+2404:6800:8005::5e www.google.fi #www-cctld.l.google.com
+2404:6800:8005::5e www.google.fr #www-cctld.l.google.com
+2404:6800:8005::5e www.google.de #www-cctld.l.google.com
+2404:6800:8005::5e www.google.com.gr #www-cctld.l.google.com
+2404:6800:8005::5e www.google.co.il #www-cctld.l.google.com
+2404:6800:8005::5e www.google.co.in #www-cctld.l.google.com
+2404:6800:8005::5e www.google.it #www-cctld.l.google.com
+2404:6800:8005::5e www.google.co.jp #www-cctld.l.google.com
+2404:6800:8005::5e www.google.co.kr #www-cctld.l.google.com
+2404:6800:8005::5e www.google.lt #www-cctld.l.google.com
+2404:6800:8005::5e www.google.lv #www-cctld.l.google.com
+2404:6800:8005::5e www.google.com.ly #www-cctld.l.google.com
+2404:6800:8005::5e www.google.com.my #www-cctld.l.google.com
+2404:6800:8005::5e www.google.nl #www-cctld.l.google.com
+2404:6800:8005::5e www.google.co.nz #www-cctld.l.google.com
+2404:6800:8005::5e www.google.com.pe #www-cctld.l.google.com
+2404:6800:8005::5e www.google.com.ph #www-cctld.l.google.com
+2404:6800:8005::5e www.google.com.pk #www-cctld.l.google.com
+2404:6800:8005::5e www.google.pl #www-cctld.l.google.com
+2404:6800:8005::5e www.google.pt #www-cctld.l.google.com
+2404:6800:8005::5e www.google.ro #www-cctld.l.google.com
+2404:6800:8005::5e www.google.com.ru #www-cctld.l.google.com
+2404:6800:8005::5e www.google.com.sg #www-cctld.l.google.com
+2404:6800:8005::5e www.google.com.tr #www-cctld.l.google.com
+2404:6800:8005::5e www.google.com.ua #www-cctld.l.google.com
+2404:6800:8005::5e www.google.co.uk #www-cctld.l.google.com
+2404:6800:8005::5e www.google.co.ve #www-cctld.l.google.com
+2404:6800:8005::5e www.google.com.vn #www-cctld.l.google.com
+2404:6800:8005::5e www.google.co.za #www-cctld.l.google.com
+
+#Web 网页
+2404:6800:8005::67 www.google.com #www.l.google.com #主/登录域名，GTalk 客户端用户需注释此条，参见 Issue 11
+2404:6800:8005::66 encrypted.google.com #www3.l.google.com
+2404:6800:8005::93 www.l.google.com
+###2404:6800:8005::62 www0.l.google.com
+###2404:6800:8005::62 www1.l.google.com
+2404:6800:8005::93 www2.l.google.com
+2404:6800:8005::8b www3.l.google.com
+2404:6800:8005::85 www4.l.google.com
+2404:6800:8005::66 suggestqueries.google.com #suggestqueries.l.google.com
+2404:6800:8005::66 suggestqueries.l.google.com
+2404:6800:8005::8b gxc.google.com #www3.l.google.com
+2404:6800:8005::8b gxc.google.com.hk #www3.l.google.com
+2404:6800:8005::64 investor.google.com #www3.l.google.com
+2404:6800:8005::66 clients1.google.com #clients.l.google.com
+2404:6800:8005::64 clients2.google.com #clients.l.google.com
+2404:6800:8005::64 clients3.google.com #clients.l.google.com
+2404:6800:8005::8b clients4.google.com #clients.l.google.com
+2404:6800:8005::8a clients5.google.com #clients.l.google.com
+2404:6800:8005::8b clients6.google.com #clients.l.google.com
+2404:6800:8005::5e clients1.google.com.hk #clients-cctld.l.google.com
+2404:6800:8005::5e clients1.google.com.tw #clients-cctld.l.google.com
+2404:6800:8005::66 linkhelp.clients.google.com #clients.l.google.com
+2404:6800:8005::64 clients.l.google.com
+2404:6800:8005::64 encrypted-tbn0.google.com #encrypted-tbn.l.google.com
+2404:6800:8005::8a encrypted-tbn1.google.com #encrypted-tbn.l.google.com
+2404:6800:8005::8a encrypted-tbn2.google.com #encrypted-tbn.l.google.com
+2404:6800:8005::65 encrypted-tbn3.google.com #encrypted-tbn.l.google.com
+2404:6800:8005::64 encrypted-tbn.l.google.com
+2404:6800:8005::8b support.google.com #www3.l.google.com
+2404:6800:8005::c1 mobile.google.com #mobile.l.google.com
+2404:6800:8005::63 mobile.google.com.hk #www.google.com
+
+#Google Apps 企业应用套件
+2404:6800:8005::71 apps.google.com #www3.l.google.com
+2404:6800:8005::79 ghs.google.com #ghs.l.google.com
+2404:6800:8005::79 ghs46.google.com #ghs46.l.google.com #GHS 双栈入口！
+2404:6800:8005::79 ghs.l.google.com
+2404:6800:8005::79 ghs46.l.google.com
+#2404:6800:8005::79 ghs.l.google.com #可以添加你 GApps 域名的博客地址 / GSites 地址到这里
+
+#Mashups/App Engine GAE
+2404:6800:8005::68 googlemashups.com
+2404:6800:8005::67 www.googlemashups.com #www2.l.google.com
+#2404:6800:8005::62 googlemashups.l.google.com
+2404:6800:8005::67 *.googlemashups.com #www2.l.google.com
+2404:6800:8005::8b appengine.google.com #www3.l.google.com
+2404:6800:8005::8d appspot.l.google.com
+2404:6800:8005::8d productideas.appspot.com #appspot.l.google.com
+2404:6800:8005::8d storegadgetwizard.appspot.com #appspot.l.google.com
+2404:6800:8005::8d moderator.appspot.com #appspot.l.google.com
+2404:6800:8005::8d gv-gadget.appspot.com #appspot.l.google.com
+2404:6800:8005::8d haiticrisis.appspot.com #appspot.l.google.com
+2404:6800:8005::8d codereview.appspot.com #appspot.l.google.com
+2404:6800:8005::8d i18napis.appspot.com #appspot.l.google.com
+2404:6800:8005::8d googcloudlabs.appspot.com #appspot.l.google.com
+2404:6800:8005::8d googlesharedspaces.appspot.com #appspot.l.google.com
+2404:6800:8005::8d project-slingshot-gp.appspot.com #appspot.l.google.com
+2404:6800:8005::8d r3269-dot-latest-dot-project-slingshot-gp.appspot.com #appspot.l.google.com
+2404:6800:8005::8d newsfeed-dot-latest-dot-rovio-ad-engine.appspot.com #appspot.l.google.com
+2404:6800:8005::8d evolutionofweb.appspot.com #appspot.l.google.com
+2404:6800:8005::8d yt-debates.appspot.com #appspot.l.google.com
+2404:6800:8005::8d *.appspot.com #appspot.l.google.com #可以添加自己的 gae 应用
+
+#Answers/Guru/WenDa 问答社区（国际版已停止运营）
+2404:6800:8005::71 answers.google.com #www3.l.google.com
+###2404:6800:8005::62 guru.google.com
+2404:6800:8005::69 guru.google.co.th #www2.l.google.com
+2404:6800:8005::66 wenda.google.com.hk #www3.l.google.com
+
+#Blog 博客搜索
+2404:6800:8005::93 blogsearch.google.com #www2.l.google.com
+2404:6800:8005::93 blogsearch.google.com.hk #www2.l.google.com
+2404:6800:8005::6a blogsearch.google.com.tw #www2.l.google.com
+2404:6800:8005::a0 blogsearch.google.cn #www.google.cn
+
+#Blogger 博客服务
+2404:6800:8005::bf www.blogger.com #blogger.l.google.com
+2404:6800:8005::bf blogger.com
+2404:6800:8005::bf buttons.blogger.com #blogger.l.google.com
+2404:6800:8005::bf beta.blogger.com #blogger.l.google.com
+2404:6800:8005::bf draft.blogger.com #blogger.l.google.com
+2404:6800:8005::bf status.blogger.com #blogger.l.google.com
+2404:6800:8005::67 help.blogger.com #www2.l.google.com
+2404:6800:8005::bf buzz.blogger.com #blogger.l.google.com
+2404:6800:8005::67 photos1.blogger.com #photos1.l.google.com
+2404:6800:8005::64 bp0.blogger.com #bloggerphotos.l.google.com
+2404:6800:8005::65 bp1.blogger.com #bloggerphotos.l.google.com
