@@ -56,6 +56,14 @@ class MetaManager():
         except Exception, e:
             logging.warning('get children(%s) error, %s' % (path, str(e)))
             return []
+    def get_property(self, path):
+        try:
+            path = self.root + path
+            prop = self.zk.get_properties(path)
+            return prop
+        except Exception, e:
+            logging.warning('get properties(%s) failed' % path)
+            return {}
 
 
 # for testing

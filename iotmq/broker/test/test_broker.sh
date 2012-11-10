@@ -6,6 +6,6 @@ COUNTER=0
 cat ./hosts | while read LINE;
 do
     curl $REST_SERVER -d data="$LINE"
-    echo "send $COUNTER message"
+    echo "send message $COUNTER: $LINE"
     let COUNTER++
 done
